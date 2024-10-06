@@ -23,11 +23,14 @@ import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Code
+import androidx.compose.material.icons.filled.FileDownload
+import androidx.compose.material.icons.filled.FormatQuote
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -381,6 +384,8 @@ fun ProjectScreen() {
                         Column(
                             modifier = Modifier
                                 .weight(3.5f)
+                                .padding(end = 32.dp)
+                                .padding(8.dp)
                         ) {
                             Text(
                                 text = "Research",
@@ -389,13 +394,46 @@ fun ProjectScreen() {
                                 modifier = Modifier
                                     .padding(0.dp, 32.dp, 0.dp, 16.dp)
                             )
-                            Card(
-                                shape = RoundedCornerShape(12.dp),
-                                backgroundColor = MaterialTheme.colors.secondary,
+                            ListItem(
+                                text = { Text(
+                                    text = "Generative Dataset Distillation: Balancing Global Structure and Local Details",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.h6
+                                ) },
+                                secondaryText = { Text(
+                                    text = "Longzhen Li & Guang Li et al., CVPR 2024 Workshop",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.body1
+                                ) },
+                                trailing = {
+                                    Row {
+                                        IconButton(
+                                            onClick = {uriHandler.openUri("https://github.com/Guang000/Awesome-Dataset-Distillation/blob/main/citations/li2024generative.txt")}
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Filled.FormatQuote,
+                                                contentDescription = ""
+                                            )
+                                        }
+                                        IconButton(
+                                            onClick = {uriHandler.openUri("https://arxiv.org/abs/2404.17732")}
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Filled.FileDownload,
+                                                contentDescription = ""
+                                            )
+                                        }
+                                    }
+
+                                },
+                                //shape = RoundedCornerShape(12.dp),
+                                //backgroundColor = MaterialTheme.colors.secondary,
                                 modifier = Modifier
-                                    .height(100.dp)
+                                    //.height(100.dp)
                                     .fillMaxWidth()
-                            ) {  }
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(color = MaterialTheme.colors.secondary)
+                            )
                         }
                         Spacer(modifier = Modifier.weight(1f))
                     }
