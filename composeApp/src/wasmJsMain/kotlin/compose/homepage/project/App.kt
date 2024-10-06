@@ -28,31 +28,28 @@ import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.HistoryEdu
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Light
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
-import com.example.compose.onPrimaryContainerLight
-import com.example.compose.primaryContainerLight
 import com.example.compose.tertiaryContainerLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
 import longzhenhomepage.composeapp.generated.resources.Outfit_Light
 import longzhenhomepage.composeapp.generated.resources.Outfit_Regular
 import longzhenhomepage.composeapp.generated.resources.Outfit_Thin
-import org.jetbrains.compose.resources.painterResource
-
 import longzhenhomepage.composeapp.generated.resources.Res
 import longzhenhomepage.composeapp.generated.resources.avatar
 import org.jetbrains.compose.resources.Font
+import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -76,10 +73,11 @@ fun App() {
         val projectIsHovered by projectInteractionSource.collectIsHoveredAsState()
         val eduIsHovered by eduInteractionSource.collectIsHoveredAsState()
         val skillIsHovered by skillInteractionSource.collectIsHoveredAsState()
-        /*val introIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
-        val projectIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
-        val eduIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
-        val skillIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value*/
+
+        var isGreet by remember { mutableStateOf(false) }
+        var isProject by remember { mutableStateOf(true) }
+        var isEdu by remember { mutableStateOf(false) }
+        var isSkills by remember { mutableStateOf(false) }
 
 
         Row {
@@ -128,7 +126,12 @@ fun App() {
                         },
                         modifier = Modifier
                             .clickable(
-                                onClick = {},
+                                onClick = {
+                                    isGreet = true
+                                    isProject = false
+                                    isEdu = false
+                                    isSkills = false
+                                },
                             )
                             .hoverable(interactionSource = introInteractionSource)
                             .background(color = if (introIsHovered) {
@@ -152,7 +155,12 @@ fun App() {
                         },
                         modifier = Modifier
                             .clickable(
-                                onClick = {},
+                                onClick = {
+                                    isGreet = false
+                                    isProject = true
+                                    isEdu = false
+                                    isSkills = false
+                                },
                             )
                             .hoverable(interactionSource = projectInteractionSource)
                             .background(color = if (projectIsHovered) {
@@ -228,65 +236,12 @@ fun App() {
                 }
             }
 
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(primaryContainerLight)
-                    .weight(9f),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = "Hi there! My name is",
-                    style = MaterialTheme.typography.h3,
-                    textAlign = TextAlign.Center,
-                    fontFamily = outfit,
-                    //color = MaterialTheme.colors.onBackground
-                    color = onPrimaryContainerLight
-                )
-                Text(
-                    text = "Li Longzhen",
-                    style = MaterialTheme.typography.h1,
-                    textAlign = TextAlign.Center,
-                    fontFamily = outfit,
-                    fontWeight = FontWeight.SemiBold,
-                    //color = MaterialTheme.colors.onBackground
-                    color = onPrimaryContainerLight
-                )
-                Text(
-                    text = "I am a Android Developer,\na Computer Vision master student,\na Design Enthusiasts",
-                    style = MaterialTheme.typography.h3,
-                    textAlign = TextAlign.Center,
-                    fontFamily = outfit,
-                    //color = MaterialTheme.colors.onBackground
-                    color = onPrimaryContainerLight
-                )
-                Text(
-                    text = buildAnnotatedString {
-                        append("And a ")
-                        withStyle(style = SpanStyle(
-                            fontFamily = outfit,
-                            fontWeight = FontWeight.SemiBold
-                        )) {
-                            append("Technophile")
-                        }
-                    },
-                    style = MaterialTheme.typography.h2,
-                    textAlign = TextAlign.Center,
-                    fontFamily = outfit,
-                    //color = MaterialTheme.colors.onBackground
-                    color = onPrimaryContainerLight
-                )
-                /*Button(onClick = { showContent = !showContent }) {
-                    Text("Click me!")
+            Box(modifier = Modifier.weight(9f)) {
+                if (isGreet) {
+                    GreetScreen()
+                } else if (isProject) {
+                    ProjectScreen()
                 }
-                AnimatedVisibility(showContent) {
-                    val greeting = remember { Greeting().greet() }
-                    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                        Image(painterResource(Res.drawable.compose_multiplatform), null)
-                        Text("Compose: $greeting")
-                    }
-                }*/
             }
         }
 
