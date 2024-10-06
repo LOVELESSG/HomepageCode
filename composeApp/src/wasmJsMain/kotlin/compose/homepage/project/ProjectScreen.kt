@@ -3,6 +3,9 @@ package compose.homepage.project
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.ScrollableState
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
@@ -79,321 +83,325 @@ fun ProjectScreen() {
         val windowsSize = LocalWindowInfo.current.containerSize
         val uriHandler = LocalUriHandler.current
 
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .background(primaryContainerLight),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Row(
-                modifier = Modifier.padding(0.dp, 16.dp)
-            ) {
-                Spacer(modifier = Modifier.weight(1f))
-                Text(
-                    text = "Project",
-                    style = MaterialTheme.typography.h2,
-                    fontFamily = outfit,
-                    modifier = Modifier.weight(2.5f)
-                )
-                Text(
-                    text = "Design",
-                    //maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    style = MaterialTheme.typography.h2,
-                    fontFamily = outfit,
-                    modifier = Modifier.weight(2f)
-                )
-            }
-            Row(
-                modifier = Modifier
-                    //.padding(64.dp)
-            ) {
-                Spacer(modifier = Modifier.weight(1f))
+            item {
+                Column {
+                    Row(
+                        modifier = Modifier.padding(0.dp, 64.dp, 0.dp, 16.dp)
+                    ) {
+                        Spacer(modifier = Modifier.weight(1f))
+                        Text(
+                            text = "Project",
+                            style = MaterialTheme.typography.h2,
+                            fontFamily = outfit,
+                            modifier = Modifier.weight(2.5f)
+                        )
+                        Text(
+                            text = "Design",
+                            //maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.h2,
+                            fontFamily = outfit,
+                            modifier = Modifier.weight(2f)
+                        )
+                    }
+                    Row(
+                        modifier = Modifier
+                        //.padding(64.dp)
+                    ) {
+                        Spacer(modifier = Modifier.weight(1f))
 
-                Column(
-                    modifier = Modifier
-                        //.padding(end = 128.dp)
-                        .weight(2f)
-                ) {
-
-                    Row {
-                        Card(
-                            shape = RoundedCornerShape(12.dp),
-                            backgroundColor = MaterialTheme.colors.secondary,
+                        Column(
                             modifier = Modifier
-                                //.height(350.dp)
-                                .width(400.dp)
-                                .weight(1f)
-                                .padding(end = 32.dp)
-                                .clickable {
-                                    crossClockExpand = !crossClockExpand
-                                }
+                                //.padding(end = 128.dp)
+                                .weight(2f)
                         ) {
-                            Column {
-                                Surface(
+
+                            Row {
+                                Card(
                                     shape = RoundedCornerShape(12.dp),
+                                    backgroundColor = MaterialTheme.colors.secondary,
                                     modifier = Modifier
-                                        .height(128.dp)
-                                        //.width(400.dp)
+                                        //.height(350.dp)
+                                        .width(400.dp)
+                                        .weight(1f)
+                                        .padding(end = 32.dp)
+                                        .clickable {
+                                            crossClockExpand = !crossClockExpand
+                                        }
                                 ) {
-                                    Image(
-                                        painter = painterResource(Res.drawable.IconCover),
-                                        contentDescription = "Project 1 title image",
-                                        contentScale = ContentScale.Crop
-                                    )
-                                }
+                                    Column {
+                                        Surface(
+                                            shape = RoundedCornerShape(12.dp),
+                                            modifier = Modifier
+                                                .height(128.dp)
+                                            //.width(400.dp)
+                                        ) {
+                                            Image(
+                                                painter = painterResource(Res.drawable.IconCover),
+                                                contentDescription = "Project 1 title image",
+                                                contentScale = ContentScale.Crop
+                                            )
+                                        }
 
-                                Text(
-                                    text = "Cross Clock",
-                                    fontFamily = outfit,
-                                    style = MaterialTheme.typography.h4,
-                                    color = MaterialTheme.colors.onSecondary,
-                                    modifier = Modifier
-                                        .padding(8.dp)
-                                )
-                                Text(
-                                    text = "CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.",
-                                    fontFamily = outfit,
-                                    style = MaterialTheme.typography.body1,
-                                    color = MaterialTheme.colors.onSecondary,
-                                    overflow = TextOverflow.Ellipsis,
-                                    maxLines = if (crossClockExpand) Int.MAX_VALUE else 4,
-                                    modifier = Modifier
-                                        .padding(8.dp, 0.dp, 8.dp, 0.dp)
-                                )
-
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        //.weight(1f)
-                                        .padding(8.dp),
-                                    contentAlignment = Alignment.CenterEnd
-                                ) {
-                                    Surface(
-                                        modifier = Modifier
-                                            .background(Color.Transparent)
-                                            .clip(RoundedCornerShape(12.dp))
-                                            .height(36.dp)
-                                            .clickable { uriHandler.openUri("https://play.google.com/store/apps/details?id=com.crossware.crossclock") }
-                                    ) {
-                                        Image(
-                                            painter = painterResource(Res.drawable.GetItOnGooglePlay_Badge_Web_color_English),
-                                            contentDescription = "Download from Google Play",
-                                            contentScale = ContentScale.FillHeight
+                                        Text(
+                                            text = "Cross Clock",
+                                            fontFamily = outfit,
+                                            style = MaterialTheme.typography.h4,
+                                            color = MaterialTheme.colors.onSecondary,
+                                            modifier = Modifier
+                                                .padding(8.dp)
                                         )
+                                        Text(
+                                            text = "CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.",
+                                            fontFamily = outfit,
+                                            style = MaterialTheme.typography.body1,
+                                            color = MaterialTheme.colors.onSecondary,
+                                            overflow = TextOverflow.Ellipsis,
+                                            maxLines = if (crossClockExpand) Int.MAX_VALUE else 4,
+                                            modifier = Modifier
+                                                .padding(8.dp, 0.dp, 8.dp, 0.dp)
+                                        )
+
+                                        Box(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                //.weight(1f)
+                                                .padding(8.dp),
+                                            contentAlignment = Alignment.CenterEnd
+                                        ) {
+                                            Surface(
+                                                modifier = Modifier
+                                                    .background(Color.Transparent)
+                                                    .clip(RoundedCornerShape(12.dp))
+                                                    .height(36.dp)
+                                                    .clickable { uriHandler.openUri("https://play.google.com/store/apps/details?id=com.crossware.crossclock") }
+                                            ) {
+                                                Image(
+                                                    painter = painterResource(Res.drawable.GetItOnGooglePlay_Badge_Web_color_English),
+                                                    contentDescription = "Download from Google Play",
+                                                    contentScale = ContentScale.FillHeight
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+                                Card(
+                                    shape = RoundedCornerShape(12.dp),
+                                    backgroundColor = MaterialTheme.colors.secondary,
+                                    modifier = Modifier
+                                        //.height(360.dp)
+                                        .width(400.dp)
+                                        .weight(1f)
+                                        .padding(end = 32.dp)
+                                        .clickable {
+                                            crossLoquiExpand = !crossLoquiExpand
+                                        }
+                                ) {
+                                    Column {
+                                        Surface(
+                                            shape = RoundedCornerShape(12.dp),
+                                            modifier = Modifier
+                                                .height(128.dp)
+                                                .width(400.dp)
+                                        ) {
+                                            Image(
+                                                painter = painterResource(Res.drawable.code),
+                                                //painter = painterResource(Res.drawable.code_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24),
+                                                contentDescription = "Project 2 title image",
+                                                contentScale = ContentScale.Crop
+                                            )
+                                        }
+
+                                        Text(
+                                            text = "Cross Loqui",
+                                            fontFamily = outfit,
+                                            style = MaterialTheme.typography.h4,
+                                            color = MaterialTheme.colors.onSecondary,
+                                            modifier = Modifier
+                                                .padding(8.dp)
+                                        )
+                                        Text(
+                                            text = "Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.",
+                                            fontFamily = outfit,
+                                            style = MaterialTheme.typography.body1,
+                                            color = MaterialTheme.colors.onSecondary,
+                                            overflow = TextOverflow.Ellipsis,
+                                            maxLines = if (crossLoquiExpand) Int.MAX_VALUE else 4,
+                                            modifier = Modifier
+                                                .padding(8.dp, 0.dp, 8.dp, 0.dp)
+                                        )
+
+                                        Box(
+                                            modifier = Modifier
+                                                //.height(52.dp)
+                                                .fillMaxWidth()
+                                                //.clip(RoundedCornerShape(12.dp))
+                                                //.background(color = surfaceDimLight)
+                                                .padding(8.dp),
+                                            contentAlignment = Alignment.CenterEnd
+                                        ) {
+                                            Surface(
+                                                shape = RoundedCornerShape(12.dp),
+                                                color = surfaceDimLight,
+                                                onClick = {},
+                                                modifier = Modifier
+                                                    .height(34.dp),
+                                                //.height(34.dp)
+                                                //.clip(RoundedCornerShape(12.dp)),
+                                                enabled = false
+                                            ) {
+                                                Text(
+                                                    text = "Coming Soon",
+                                                    fontFamily = outfit,
+                                                    maxLines = 1,
+                                                    overflow = TextOverflow.Ellipsis,
+                                                    style = MaterialTheme.typography.body1,
+                                                    modifier = Modifier.padding(4.dp)
+                                                )
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
-                        Card(
-                            shape = RoundedCornerShape(12.dp),
-                            backgroundColor = MaterialTheme.colors.secondary,
-                            modifier = Modifier
-                                //.height(360.dp)
-                                .width(400.dp)
-                                .weight(1f)
-                                .padding(end = 32.dp)
-                                .clickable {
-                                    crossLoquiExpand = !crossLoquiExpand
-                                }
+
+                        Spacer(modifier = Modifier.weight(0.5f))
+
+                        Column(
+                            modifier = Modifier.weight(1f)
                         ) {
-                            Column {
-                                Surface(
-                                    shape = RoundedCornerShape(12.dp),
-                                    modifier = Modifier
-                                        .height(128.dp)
-                                        .width(400.dp)
-                                ) {
-                                    Image(
-                                        painter = painterResource(Res.drawable.code),
-                                        //painter = painterResource(Res.drawable.code_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24),
-                                        contentDescription = "Project 2 title image",
-                                        contentScale = ContentScale.Crop
-                                    )
-                                }
 
-                                Text(
-                                    text = "Cross Loqui",
-                                    fontFamily = outfit,
-                                    style = MaterialTheme.typography.h4,
-                                    color = MaterialTheme.colors.onSecondary,
-                                    modifier = Modifier
-                                        .padding(8.dp)
-                                )
-                                Text(
-                                    text = "Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.",
-                                    fontFamily = outfit,
-                                    style = MaterialTheme.typography.body1,
-                                    color = MaterialTheme.colors.onSecondary,
-                                    overflow = TextOverflow.Ellipsis,
-                                    maxLines = if (crossLoquiExpand) Int.MAX_VALUE else 4,
-                                    modifier = Modifier
-                                        .padding(8.dp, 0.dp, 8.dp, 0.dp)
-                                )
-
-                                Box(
-                                    modifier = Modifier
-                                        //.height(52.dp)
-                                        .fillMaxWidth()
-                                        //.clip(RoundedCornerShape(12.dp))
-                                        //.background(color = surfaceDimLight)
-                                        .padding(8.dp),
-                                    contentAlignment = Alignment.CenterEnd
-                                ) {
+                            Card(
+                                shape = RoundedCornerShape(12.dp),
+                                backgroundColor = MaterialTheme.colors.secondary,
+                                modifier = Modifier
+                                    //.height(300.dp)
+                                    .width(400.dp)
+                                    .padding(end = 32.dp)
+                                    .clickable {
+                                        awesomeHomepageExpand = !awesomeHomepageExpand
+                                    }
+                            ) {
+                                Column {
                                     Surface(
                                         shape = RoundedCornerShape(12.dp),
-                                        color = surfaceDimLight,
-                                        onClick = {},
                                         modifier = Modifier
-                                            .height(34.dp),
-                                            //.height(34.dp)
-                                            //.clip(RoundedCornerShape(12.dp)),
-                                        enabled = false
+                                            .height(128.dp)
+                                        //.width(400.dp)
                                     ) {
-                                        Text(
-                                            text = "Coming Soon",
-                                            fontFamily = outfit,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis,
-                                            style = MaterialTheme.typography.body1,
-                                            modifier = Modifier.padding(4.dp)
-                                        )
+                                        Box(
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Image(
+                                                painter = painterResource(Res.drawable.titleBackground),
+                                                contentDescription = "Project 3 title image",
+                                                contentScale = ContentScale.Crop
+                                            )
+                                            Text(
+                                                text = "Awesome Dataset Distillation Homepage",
+                                                fontFamily = outfit,
+                                                textAlign = TextAlign.Center,
+                                                style = MaterialTheme.typography.h6,
+                                                color = MaterialTheme.colors.onSecondary,
+                                                modifier = Modifier
+                                                    .padding(8.dp)
+                                            )
+                                        }
                                     }
-                                }
-                            }
-                        }
-                    }
-                }
 
-                Spacer(modifier = Modifier.weight(0.5f))
-
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-
-                    Card(
-                        shape = RoundedCornerShape(12.dp),
-                        backgroundColor = MaterialTheme.colors.secondary,
-                        modifier = Modifier
-                            //.height(300.dp)
-                            .width(400.dp)
-                            .padding(end = 32.dp)
-                            .clickable {
-                                awesomeHomepageExpand = !awesomeHomepageExpand
-                            }
-                    ) {
-                        Column {
-                            Surface(
-                                shape = RoundedCornerShape(12.dp),
-                                modifier = Modifier
-                                    .height(128.dp)
-                                    //.width(400.dp)
-                            ) {
-                                Box(
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Image(
-                                        painter = painterResource(Res.drawable.titleBackground),
-                                        contentDescription = "Project 3 title image",
-                                        contentScale = ContentScale.Crop
-                                    )
                                     Text(
-                                        text = "Awesome Dataset Distillation Homepage",
+                                        text = "Homepage",
                                         fontFamily = outfit,
-                                        textAlign = TextAlign.Center,
-                                        style = MaterialTheme.typography.h6,
+                                        style = MaterialTheme.typography.h4,
                                         color = MaterialTheme.colors.onSecondary,
                                         modifier = Modifier
                                             .padding(8.dp)
                                     )
-                                }
-                            }
-
-                            Text(
-                                text = "Homepage",
-                                fontFamily = outfit,
-                                style = MaterialTheme.typography.h4,
-                                color = MaterialTheme.colors.onSecondary,
-                                modifier = Modifier
-                                    .padding(8.dp)
-                            )
-                            Text(
-                                text = "Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.",
-                                fontFamily = outfit,
-                                style = MaterialTheme.typography.body1,
-                                color = MaterialTheme.colors.onSecondary,
-                                overflow = TextOverflow.Ellipsis,
-                                maxLines = if (awesomeHomepageExpand) Int.MAX_VALUE else 4,
-                                modifier = Modifier
-                                    .padding(8.dp, 0.dp, 8.dp, 0.dp)
-                            )
-
-                            Box(
-                                modifier = Modifier
-                                    //.height(52.dp)
-                                    .fillMaxWidth()
-                                    //.clip(RoundedCornerShape(12.dp))
-                                    //.background(color = surfaceDimLight)
-                                    .padding(8.dp),
-                                contentAlignment = Alignment.CenterEnd
-                            ) {
-                                Surface(
-                                    shape = RoundedCornerShape(12.dp),
-                                    color = MaterialTheme.colors.surface,
-                                    onClick = {
-                                        uriHandler.openUri("https://guang000.github.io/Awesome-Dataset-Distillation/")
-                                    },
-                                    modifier = Modifier
-                                        .height(34.dp),
-                                    //.height(34.dp)
-                                    //.clip(RoundedCornerShape(12.dp)),
-                                    enabled = true
-                                ) {
                                     Text(
-                                        text = "Go to Website",
+                                        text = "Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.",
                                         fontFamily = outfit,
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis,
                                         style = MaterialTheme.typography.body1,
-                                        color = MaterialTheme.colors.onSurface,
-                                        modifier = Modifier.padding(4.dp)
+                                        color = MaterialTheme.colors.onSecondary,
+                                        overflow = TextOverflow.Ellipsis,
+                                        maxLines = if (awesomeHomepageExpand) Int.MAX_VALUE else 4,
+                                        modifier = Modifier
+                                            .padding(8.dp, 0.dp, 8.dp, 0.dp)
                                     )
+
+                                    Box(
+                                        modifier = Modifier
+                                            //.height(52.dp)
+                                            .fillMaxWidth()
+                                            //.clip(RoundedCornerShape(12.dp))
+                                            //.background(color = surfaceDimLight)
+                                            .padding(8.dp),
+                                        contentAlignment = Alignment.CenterEnd
+                                    ) {
+                                        Surface(
+                                            shape = RoundedCornerShape(12.dp),
+                                            color = MaterialTheme.colors.surface,
+                                            onClick = {
+                                                uriHandler.openUri("https://guang000.github.io/Awesome-Dataset-Distillation/")
+                                            },
+                                            modifier = Modifier
+                                                .height(34.dp),
+                                            //.height(34.dp)
+                                            //.clip(RoundedCornerShape(12.dp)),
+                                            enabled = true
+                                        ) {
+                                            Text(
+                                                text = "Go to Website",
+                                                fontFamily = outfit,
+                                                maxLines = 1,
+                                                overflow = TextOverflow.Ellipsis,
+                                                style = MaterialTheme.typography.body1,
+                                                color = MaterialTheme.colors.onSurface,
+                                                modifier = Modifier.padding(4.dp)
+                                            )
+                                        }
+                                    }
                                 }
                             }
                         }
+
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                    Row(
+                        modifier = Modifier
+                        .padding(top = 32.dp)
+                    ) {
+                        Spacer(modifier = Modifier.weight(1f))
+                        Column(
+                            modifier = Modifier
+                                .weight(3.5f)
+                        ) {
+                            Text(
+                                text = "Research",
+                                style = MaterialTheme.typography.h2,
+                                fontFamily = outfit,
+                                modifier = Modifier
+                                    .padding(0.dp, 32.dp, 0.dp, 16.dp)
+                            )
+                            Card(
+                                shape = RoundedCornerShape(12.dp),
+                                backgroundColor = MaterialTheme.colors.secondary,
+                                modifier = Modifier
+                                    .height(100.dp)
+                                    .fillMaxWidth()
+                            ) {  }
+                        }
+                        Spacer(modifier = Modifier.weight(1f))
                     }
                 }
-
-                Spacer(modifier = Modifier.weight(1f))
             }
-            Row(
-                modifier = Modifier
-                    //.padding(64.dp)
-            ) {
-                Spacer(modifier = Modifier.weight(1f))
-                Column(
-                    modifier = Modifier
-                        .weight(3.5f)
-                ) {
-                    Text(
-                        text = "Research",
-                        style = MaterialTheme.typography.h2,
-                        fontFamily = outfit,
-                        modifier = Modifier
-                            .padding(0.dp, 32.dp, 0.dp, 16.dp)
-                    )
-                    Card(
-                        shape = RoundedCornerShape(12.dp),
-                        backgroundColor = MaterialTheme.colors.secondary,
-                        modifier = Modifier
-                            .height(100.dp)
-                            .fillMaxWidth()
-                    ) {  }
-                }
-                Spacer(modifier = Modifier.weight(1f))
-            }
-
         }
+
     }
 }
