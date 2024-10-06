@@ -1,18 +1,20 @@
 package compose.homepage.project
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Button
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -21,24 +23,15 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Architecture
-import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.EmojiEvents
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.HistoryEdu
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Light
-import androidx.compose.material.icons.filled.LightMode
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.School
-import androidx.compose.material.icons.filled.Work
-import androidx.compose.material.icons.outlined.Light
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
@@ -49,7 +42,6 @@ import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.onPrimaryContainerLight
 import com.example.compose.primaryContainerLight
-import com.example.compose.surfaceDimLight
 import com.example.compose.tertiaryContainerLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
@@ -60,7 +52,6 @@ import org.jetbrains.compose.resources.painterResource
 
 import longzhenhomepage.composeapp.generated.resources.Res
 import longzhenhomepage.composeapp.generated.resources.avatar
-import longzhenhomepage.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.Font
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -75,6 +66,21 @@ fun App() {
             Font(Res.font.Outfit_Light, FontWeight.Light)
         )
         //var showContent by remember { mutableStateOf(false) }
+
+        val introInteractionSource = remember { MutableInteractionSource() }
+        val projectInteractionSource = remember { MutableInteractionSource() }
+        val eduInteractionSource = remember { MutableInteractionSource() }
+        val skillInteractionSource = remember { MutableInteractionSource() }
+
+        val introIsHovered by introInteractionSource.collectIsHoveredAsState()
+        val projectIsHovered by projectInteractionSource.collectIsHoveredAsState()
+        val eduIsHovered by eduInteractionSource.collectIsHoveredAsState()
+        val skillIsHovered by skillInteractionSource.collectIsHoveredAsState()
+        /*val introIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
+        val projectIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
+        val eduIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value
+        val skillIsHovered = remember { MutableInteractionSource() }.collectIsHoveredAsState().value*/
+
 
         Row {
             Column(
@@ -110,28 +116,100 @@ fun App() {
                     verticalArrangement = Arrangement.Center
                 ) {
                     ListItem(
-                        text = { Text(text = "Introduction", fontFamily = outfit) },
+                        text = {
+                            Text(
+                                text = "Introduction",
+                                fontFamily = outfit,
+                                fontWeight = if (introIsHovered) FontWeight.SemiBold else FontWeight.Normal
+                            )
+                        },
                         icon = {
                             Icon(Icons.Filled.Home, "")
                         },
+                        modifier = Modifier
+                            .clickable(
+                                onClick = {},
+                            )
+                            .hoverable(interactionSource = introInteractionSource)
+                            .background(color = if (introIsHovered) {
+                                MaterialTheme.colors.primary
+                            } else {
+                                Color.Transparent
+                            },
+                                shape = RoundedCornerShape(bottomEnd = 50.dp, topEnd =  50.dp)
+                            )
                     )
                     ListItem (
-                        text = { Text("Project/Research", fontFamily = outfit) },
+                        text = {
+                            Text(
+                                "Project/Research",
+                                fontFamily = outfit,
+                                fontWeight = if (projectIsHovered) FontWeight.SemiBold else FontWeight.Normal
+                            )
+                        },
                         icon = {
                             Icon(Icons.Filled.EmojiEvents, "")
-                        }
+                        },
+                        modifier = Modifier
+                            .clickable(
+                                onClick = {},
+                            )
+                            .hoverable(interactionSource = projectInteractionSource)
+                            .background(color = if (projectIsHovered) {
+                                MaterialTheme.colors.primary
+                            } else {
+                                Color.Transparent
+                            },
+                                shape = RoundedCornerShape(bottomEnd = 50.dp, topEnd =  50.dp)
+                            )
                     )
                     ListItem(
-                        text = { Text("Education/Work", fontFamily = outfit) },
+                        text = {
+                            Text(
+                                "Education/Work",
+                                fontFamily = outfit,
+                                fontWeight = if (eduIsHovered) FontWeight.SemiBold else FontWeight.Normal
+                            )
+                        },
                         icon = {
                             Icon(Icons.Filled.HistoryEdu, "")
-                        }
+                        },
+                        modifier = Modifier
+                            .clickable(
+                                onClick = {},
+                            )
+                            .hoverable(interactionSource = eduInteractionSource)
+                            .background(color = if (eduIsHovered) {
+                                MaterialTheme.colors.primary
+                            } else {
+                                Color.Transparent
+                            },
+                                shape = RoundedCornerShape(bottomEnd = 50.dp, topEnd =  50.dp)
+                            )
                     )
                     ListItem(
-                        text = { Text("Skills", fontFamily = outfit) },
+                        text = {
+                            Text(
+                                "Skills",
+                                fontFamily = outfit,
+                                fontWeight = if (skillIsHovered) FontWeight.SemiBold else FontWeight.Normal
+                            )
+                        },
                         icon = {
                             Icon(Icons.Filled.Architecture, "")
-                        }
+                        },
+                        modifier = Modifier
+                            .clickable(
+                                onClick = {},
+                            )
+                            .hoverable(interactionSource = skillInteractionSource)
+                            .background(color = if (skillIsHovered) {
+                                MaterialTheme.colors.primary
+                            } else {
+                                Color.Transparent
+                            },
+                                shape = RoundedCornerShape(bottomEnd = 50.dp, topEnd =  50.dp)
+                            )
                     )
                 }
 
