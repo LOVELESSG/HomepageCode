@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.primaryContainerLight
@@ -240,12 +241,16 @@ fun SkillScreen() {
                                 style = MaterialTheme.typography.h4,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
                             Text(
                                 text = "(Native Language)",
                                 style = MaterialTheme.typography.body1,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
                         }
 
@@ -273,12 +278,16 @@ fun SkillScreen() {
                                 style = MaterialTheme.typography.h4,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
                             Text(
                                 text = "(Business Level)",
                                 style = MaterialTheme.typography.body1,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
                         }
                         Row(
@@ -304,6 +313,8 @@ fun SkillScreen() {
                             style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
                             color = MaterialTheme.colors.onSecondary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -329,6 +340,8 @@ fun SkillScreen() {
                             style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
                             color = MaterialTheme.colors.onSecondary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -360,6 +373,8 @@ fun SkillScreen() {
                             style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
                             color = MaterialTheme.colors.onSecondary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(

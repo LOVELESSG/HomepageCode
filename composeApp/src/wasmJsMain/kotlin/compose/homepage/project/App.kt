@@ -75,10 +75,10 @@ fun App() {
         val eduIsHovered by eduInteractionSource.collectIsHoveredAsState()
         val skillIsHovered by skillInteractionSource.collectIsHoveredAsState()
 
-        var isGreet by remember { mutableStateOf(false) }
+        var isGreet by remember { mutableStateOf(true) }
         var isProject by remember { mutableStateOf(false) }
         var isEdu by remember { mutableStateOf(false) }
-        var isSkills by remember { mutableStateOf(true) }
+        var isSkills by remember { mutableStateOf(false) }
 
 
         Row {
