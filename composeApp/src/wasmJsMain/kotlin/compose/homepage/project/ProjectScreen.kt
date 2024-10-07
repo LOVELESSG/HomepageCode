@@ -1,5 +1,6 @@
 package compose.homepage.project
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,6 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
@@ -33,6 +35,7 @@ import androidx.compose.material.icons.filled.FileDownload
 import androidx.compose.material.icons.filled.FormatQuote
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -44,10 +47,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.outlineLight
@@ -66,7 +74,9 @@ import longzhenhomepage.composeapp.generated.resources.titleBackground
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 
-@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterialApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterialApi::class,
+    ExperimentalFoundationApi::class
+)
 @Composable
 fun ProjectScreen() {
     HomepageTheme {
@@ -82,6 +92,9 @@ fun ProjectScreen() {
         var crossClockExpand by remember { mutableStateOf(false) }
         var crossLoquiExpand by remember { mutableStateOf(false) }
         var awesomeHomepageExpand by remember { mutableStateOf(false) }
+
+        var article1Hover: Int? by remember { mutableStateOf(null) }
+        var article2Hover: Int? by remember { mutableStateOf(null) }
 
         val windowsSize = LocalWindowInfo.current.containerSize
         val uriHandler = LocalUriHandler.current
@@ -395,42 +408,116 @@ fun ProjectScreen() {
                                     .padding(0.dp, 32.dp, 0.dp, 16.dp)
                             )
                             ListItem(
-                                text = { Text(
-                                    text = "Generative Dataset Distillation: Balancing Global Structure and Local Details",
-                                    fontFamily = outfit,
-                                    style = MaterialTheme.typography.h6
+                                text = { ClickableText(
+                                    onClick = {
+                                        uriHandler.openUri("https://arxiv.org/abs/2404.17732")
+                                    },
+                                    onHover = {
+                                        article1Hover = it
+                                    },
+                                    text = AnnotatedString(
+                                        text = "Generative Dataset Distillation: Balancing Global Structure and Local Details",
+                                        spanStyle = SpanStyle(
+                                            fontFamily = outfit,
+                                            textDecoration = if (article1Hover == null) TextDecoration.None else TextDecoration.Underline
+                                        ),
+                                    ),
+                                    style = MaterialTheme.typography.h6,
                                 ) },
                                 secondaryText = { Text(
                                     text = "Longzhen Li & Guang Li et al., CVPR 2024 Workshop",
                                     fontFamily = outfit,
-                                    style = MaterialTheme.typography.body1
+                                    style = MaterialTheme.typography.body1,
+                                    modifier = Modifier.padding(bottom = 4.dp)
                                 ) },
-                                trailing = {
-                                    Row {
-                                        IconButton(
-                                            onClick = {uriHandler.openUri("https://github.com/Guang000/Awesome-Dataset-Distillation/blob/main/citations/li2024generative.txt")}
-                                        ) {
-                                            Icon(
-                                                imageVector = Icons.Filled.FormatQuote,
-                                                contentDescription = ""
-                                            )
-                                        }
-                                        IconButton(
-                                            onClick = {uriHandler.openUri("https://arxiv.org/abs/2404.17732")}
-                                        ) {
-                                            Icon(
-                                                imageVector = Icons.Filled.FileDownload,
-                                                contentDescription = ""
-                                            )
-                                        }
-                                    }
-
-                                },
                                 //shape = RoundedCornerShape(12.dp),
                                 //backgroundColor = MaterialTheme.colors.secondary,
                                 modifier = Modifier
                                     //.height(100.dp)
                                     .fillMaxWidth()
+                                    .padding(bottom = 16.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(color = MaterialTheme.colors.secondary)
+                            )
+
+                            ListItem(
+                                text = { ClickableText(
+                                    onClick = {
+                                        uriHandler.openUri("https://miru-committee.github.io/miru2024/program/timetable/#1620---1820-%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%83%961ais-1a--%E4%BC%81%E6%A5%AD%E5%B1%95%E7%A4%BAaex-a--%E3%83%87%E3%83%A2ds3f%E5%A4%A7%E4%BC%9A%E8%AD%B0%E5%AE%A4a")
+                                    },
+                                    onHover = {
+                                        article2Hover = it
+                                    },
+                                    text = AnnotatedString(
+                                        text = "Generative Dataset Distillation Considering Global-local Coherence",
+                                        spanStyle = SpanStyle(
+                                            fontFamily = outfit,
+                                            textDecoration = if (article2Hover == null) TextDecoration.None else TextDecoration.Underline
+                                        ),
+                                    ),
+                                    style = MaterialTheme.typography.h6,
+                                ) },
+                                secondaryText = { Text(
+                                    text = "Longzhen Li & Guang Li et al., MIRU 2024",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.body1,
+                                    modifier = Modifier.padding(bottom = 4.dp)
+                                ) },
+                                //shape = RoundedCornerShape(12.dp),
+                                //backgroundColor = MaterialTheme.colors.secondary,
+                                modifier = Modifier
+                                    //.height(100.dp)
+                                    .fillMaxWidth()
+                                    .padding(bottom = 16.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(color = MaterialTheme.colors.secondary)
+                            )
+
+                            ListItem(
+                                text = { Text(
+                                    text = "Generative Dataset Distillation Based on Large Model Pool",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.h6,
+                                ) },
+                                secondaryText = { Text(
+                                    text = "Longzhen Li & Guang Li et al., GCCE 2024",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.body1,
+                                    modifier = Modifier.padding(bottom = 4.dp)
+                                ) },
+                                //shape = RoundedCornerShape(12.dp),
+                                //backgroundColor = MaterialTheme.colors.secondary,
+                                modifier = Modifier
+                                    //.height(100.dp)
+                                    .fillMaxWidth()
+                                    .padding(bottom = 16.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(color = MaterialTheme.colors.secondary)
+                            )
+
+                            ListItem(
+                                text = { Text(
+                                    text = "GENERATIVE DATASET DISTILLATION BASED ON SELF-KNOWLEDGE DISTILLATION",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.h6,
+                                    ) },
+                                secondaryText = { Text(
+                                    text = "Longzhen Li & Guang Li et al., ICASSP 2025",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.body1,
+                                    modifier = Modifier.padding(bottom = 4.dp)
+                                ) },
+                                overlineText = { Text(
+                                    text = "Under Review",
+                                    fontFamily = outfit,
+                                    style = MaterialTheme.typography.body2,
+                                ) },
+                                //shape = RoundedCornerShape(12.dp),
+                                //backgroundColor = MaterialTheme.colors.secondary,
+                                modifier = Modifier
+                                    //.height(100.dp)
+                                    .fillMaxWidth()
+                                    .padding(bottom = 16.dp)
                                     .clip(RoundedCornerShape(12.dp))
                                     .background(color = MaterialTheme.colors.secondary)
                             )
