@@ -160,7 +160,7 @@ fun EducationScreen() {
                             modifier = Modifier.height(96.dp)
                         ) {
                             Text(
-                                text = "High School(China)",
+                                text = "Baotou No.9 High School (China)",
                                 style = MaterialTheme.typography.h4,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
@@ -176,7 +176,7 @@ fun EducationScreen() {
                             modifier = Modifier.height(128.dp)
                         ) {
                             Text(
-                                text = "Dalhousie University(Canada)",
+                                text = "Dalhousie University (Canada)",
                                 style = MaterialTheme.typography.h4,
                                 fontFamily = outfit,
                                 color = MaterialTheme.colors.onSecondary,
@@ -216,37 +216,137 @@ fun EducationScreen() {
                             )
                         }
 
-                        /*Text(
-                            text = "University",
-                            style = MaterialTheme.typography.h4,
-                            fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
-                            modifier = Modifier
-                                //.height(64.dp)
-                                //.padding(0.dp)
-                        )*/
                     }
                     Spacer(modifier = Modifier.weight(1f))
                 }
             }
 
-            /*item {
-                Text(text = "Internship")
+            item {
+                Row(
+                    modifier = Modifier.padding(0.dp, 16.dp, 0.dp, 8.dp)
+                ) {
+                    Spacer(modifier = Modifier.weight(1f))
+                    Text(
+                        text = "Internship",
+                        style = MaterialTheme.typography.h2,
+                        fontFamily = outfit,
+                        color = MaterialTheme.colors.onSecondary,
+                        modifier = Modifier.weight(3.5f)
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                }
             }
 
             item {
-                Row {
-                    Column {
-                        Spacer(modifier = Modifier
-                            .width(4.dp)
-                            .background(color = MaterialTheme.colors.background)
-                        )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    Spacer(modifier = Modifier.weight(1f))
+                    Column(
+                        //verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.weight(0.5f)
+                    ) {
+                        Box(
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Spacer(modifier = Modifier
+                                //.width(3.dp)
+                                .fillMaxWidth()
+                                .height(136.dp)
+                                .background(color = MaterialTheme.colors.primary)
+                            )
+                            Text(
+                                text = "2023.3\n~\n2023.6",
+                                textAlign = TextAlign.Center,
+                                fontFamily = outfit,
+                                color = MaterialTheme.colors.onPrimary
+                            )
+                        }
+
+                        Box(
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Spacer(modifier = Modifier
+                                //.width(3.dp)
+                                .fillMaxWidth()
+                                .height(136.dp)
+                                .background(color = MaterialTheme.colors.secondary)
+                            )
+                            Text(
+                                text = "2023.6\n~\n2023.9",
+                                textAlign = TextAlign.Center,
+                                fontFamily = outfit,
+                                color = MaterialTheme.colors.onSecondary
+                            )
+                        }
+
                     }
-                    Column {
-                        Text("University")
+                    Column(
+                        modifier = Modifier
+                            .weight(3f)
+                            .padding(start = 16.dp),
+                        verticalArrangement = Arrangement.Center,
+                    ) {
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier.height(136.dp)
+                        ) {
+                            Column {
+                                Text(
+                                    text = "Wuhan Lianxiang Phaemaceutical Supply Chain Management(Backend development engineer)",
+                                    style = MaterialTheme.typography.h4,
+                                    fontFamily = outfit,
+                                    color = MaterialTheme.colors.onSecondary,
+                                    modifier = Modifier
+                                    //.height(64.dp)
+                                    //.padding(0.dp, 8.dp)
+                                )
+                                Text(
+                                    text = "Address: Room 901, Building 7, Fanhai International SOHO City, Jianghan District, Wuhan City, Hubei Province, China",
+                                    style = MaterialTheme.typography.body1,
+                                    fontFamily = outfit,
+                                    color = MaterialTheme.colors.onSecondary,
+                                    modifier = Modifier
+                                    //.height(64.dp)
+                                    //.padding(0.dp, 8.dp)
+                                )
+                            }
+
+
+                        }
+
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier.height(136.dp)
+                        ) {
+                            Column {
+                                Text(
+                                    text = "Wicresoft Co., LTD(English Technical Support Engineer)",
+                                    style = MaterialTheme.typography.h4,
+                                    fontFamily = outfit,
+                                    color = MaterialTheme.colors.onSecondary,
+                                    modifier = Modifier
+                                    //.height(64.dp)
+                                    //.padding(0.dp, 8.dp)
+                                )
+                                Text(
+                                    text = "Address: No. 1000, Zixing Road, Wujing Town, Minhang District, Shanghai, China",
+                                    style = MaterialTheme.typography.body1,
+                                    fontFamily = outfit,
+                                    color = MaterialTheme.colors.onSecondary,
+                                    modifier = Modifier
+                                    //.height(64.dp)
+                                    //.padding(0.dp, 8.dp)
+                                )
+                            }
+
+                        }
+
                     }
+                    Spacer(modifier = Modifier.weight(1f))
                 }
-            }*/
+            }
         }
     }
 }

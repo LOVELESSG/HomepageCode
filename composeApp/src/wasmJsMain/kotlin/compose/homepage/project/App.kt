@@ -176,7 +176,7 @@ fun App() {
                     ListItem(
                         text = {
                             Text(
-                                "Education/Work",
+                                "Education/Intern",
                                 fontFamily = outfit,
                                 fontWeight = if (eduIsHovered) FontWeight.SemiBold else FontWeight.Normal
                             )
