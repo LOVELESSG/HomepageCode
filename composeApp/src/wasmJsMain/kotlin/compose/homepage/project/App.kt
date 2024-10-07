@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
@@ -75,8 +76,8 @@ fun App() {
         val skillIsHovered by skillInteractionSource.collectIsHoveredAsState()
 
         var isGreet by remember { mutableStateOf(false) }
-        var isProject by remember { mutableStateOf(true) }
-        var isEdu by remember { mutableStateOf(false) }
+        var isProject by remember { mutableStateOf(false) }
+        var isEdu by remember { mutableStateOf(true) }
         var isSkills by remember { mutableStateOf(false) }
 
 
@@ -84,7 +85,8 @@ fun App() {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .weight(1f)
+                    //.widthIn(min = 256.dp)
+                    .weight(1.5f)
                     .background(color = tertiaryContainerLight),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
@@ -184,7 +186,12 @@ fun App() {
                         },
                         modifier = Modifier
                             .clickable(
-                                onClick = {},
+                                onClick = {
+                                    isGreet = false
+                                    isProject = false
+                                    isEdu = true
+                                    isSkills = false
+                                },
                             )
                             .hoverable(interactionSource = eduInteractionSource)
                             .background(color = if (eduIsHovered) {
@@ -241,6 +248,8 @@ fun App() {
                     GreetScreen()
                 } else if (isProject) {
                     ProjectScreen()
+                } else if (isEdu) {
+                    EducationScreen()
                 }
             }
         }
