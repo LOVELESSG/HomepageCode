@@ -77,8 +77,8 @@ fun App() {
 
         var isGreet by remember { mutableStateOf(false) }
         var isProject by remember { mutableStateOf(false) }
-        var isEdu by remember { mutableStateOf(true) }
-        var isSkills by remember { mutableStateOf(false) }
+        var isEdu by remember { mutableStateOf(false) }
+        var isSkills by remember { mutableStateOf(true) }
 
 
         Row {
@@ -215,7 +215,12 @@ fun App() {
                         },
                         modifier = Modifier
                             .clickable(
-                                onClick = {},
+                                onClick = {
+                                    isGreet = false
+                                    isProject = false
+                                    isEdu = false
+                                    isSkills = true
+                                },
                             )
                             .hoverable(interactionSource = skillInteractionSource)
                             .background(color = if (skillIsHovered) {
@@ -250,6 +255,8 @@ fun App() {
                     ProjectScreen()
                 } else if (isEdu) {
                     EducationScreen()
+                } else if (isSkills) {
+                    SkillScreen()
                 }
             }
         }
