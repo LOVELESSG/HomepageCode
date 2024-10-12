@@ -30,39 +30,85 @@ import androidx.compose.material.icons.filled.HistoryEdu
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Light
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.tertiaryContainerLight
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Black
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Bold
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Light
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Medium
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Regular
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Thin
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraBold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Light
+import longzhenhomepage.composeapp.generated.resources.Outfit_Medium
 import longzhenhomepage.composeapp.generated.resources.Outfit_Regular
+import longzhenhomepage.composeapp.generated.resources.Outfit_SemiBold
 import longzhenhomepage.composeapp.generated.resources.Outfit_Thin
 import longzhenhomepage.composeapp.generated.resources.Res
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Black
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Bold
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Light
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Medium
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Regular
 import longzhenhomepage.composeapp.generated.resources.avatar
+import longzhenhomepage.composeapp.generated.resources.item1
+import longzhenhomepage.composeapp.generated.resources.item2
+import longzhenhomepage.composeapp.generated.resources.item3
+import longzhenhomepage.composeapp.generated.resources.item4
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun App() {
     HomepageTheme {
-        val outfit = FontFamily(
-            Font(Res.font.Outfit_Bold, FontWeight.Bold),
-            Font(Res.font.Outfit_Thin, FontWeight.Thin),
-            Font(Res.font.Outfit_Regular, FontWeight.Normal),
-            Font(Res.font.Outfit_Black, FontWeight.Black),
-            Font(Res.font.Outfit_Light, FontWeight.Light)
-        )
+        val myFont = if (Locale.current.language == "ja") {
+            FontFamily(
+                Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
+                Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
+                Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
+                Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
+                Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
+            )
+        } else if (Locale.current.language == "zh") {
+            FontFamily(
+                Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
+                Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
+                Font(Res.font.NotoSansSC_Black, FontWeight.Black),
+                Font(Res.font.NotoSansSC_Light, FontWeight.Light),
+                Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
+                Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
+            )
+        } else {
+            FontFamily(
+                Font(Res.font.Outfit_Bold, FontWeight.Bold),
+                Font(Res.font.Outfit_Thin, FontWeight.Thin),
+                Font(Res.font.Outfit_Regular, FontWeight.Normal),
+                Font(Res.font.Outfit_Black, FontWeight.Black),
+                Font(Res.font.Outfit_Light, FontWeight.Light),
+                Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
+                Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
+                Font(Res.font.Outfit_Medium, FontWeight.Medium),
+                Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
+            )
+        }
         //var showContent by remember { mutableStateOf(false) }
 
         val introInteractionSource = remember { MutableInteractionSource() }
@@ -79,6 +125,10 @@ fun App() {
         var isProject by remember { mutableStateOf(false) }
         var isEdu by remember { mutableStateOf(false) }
         var isSkills by remember { mutableStateOf(false) }
+
+        /*data class Language(val code: String)
+        val LocalLanguage = staticCompositionLocalOf<Language> { error("No Language provided") }
+        val initialLanguage = "en"*/
 
 
         Row {
@@ -118,8 +168,8 @@ fun App() {
                     ListItem(
                         text = {
                             Text(
-                                text = "Introduction",
-                                fontFamily = outfit,
+                                text = stringResource(Res.string.item1),
+                                fontFamily = myFont,
                                 fontWeight = if (introIsHovered) FontWeight.SemiBold else FontWeight.Normal
                             )
                         },
@@ -147,8 +197,8 @@ fun App() {
                     ListItem (
                         text = {
                             Text(
-                                "Project/Research",
-                                fontFamily = outfit,
+                                text = stringResource(Res.string.item2),
+                                fontFamily = myFont,
                                 fontWeight = if (projectIsHovered) FontWeight.SemiBold else FontWeight.Normal
                             )
                         },
@@ -176,8 +226,8 @@ fun App() {
                     ListItem(
                         text = {
                             Text(
-                                "Education/Intern",
-                                fontFamily = outfit,
+                                text = stringResource(Res.string.item3),
+                                fontFamily = myFont,
                                 fontWeight = if (eduIsHovered) FontWeight.SemiBold else FontWeight.Normal
                             )
                         },
@@ -205,8 +255,8 @@ fun App() {
                     ListItem(
                         text = {
                             Text(
-                                "Skills",
-                                fontFamily = outfit,
+                                text = stringResource(Res.string.item4),
+                                fontFamily = myFont,
                                 fontWeight = if (skillIsHovered) FontWeight.SemiBold else FontWeight.Normal
                             )
                         },
@@ -248,6 +298,19 @@ fun App() {
                 }
             }
 
+            /*CompositionLocalProvider(LocalLanguage provides Language(initialLanguage)){
+                Box(modifier = Modifier.weight(9f)) {
+                    if (isGreet) {
+                        GreetScreen()
+                    } else if (isProject) {
+                        ProjectScreen()
+                    } else if (isEdu) {
+                        EducationScreen()
+                    } else if (isSkills) {
+                        SkillScreen()
+                    }
+                }
+            }*/
             Box(modifier = Modifier.weight(9f)) {
                 if (isGreet) {
                     GreetScreen()

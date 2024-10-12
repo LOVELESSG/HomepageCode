@@ -52,6 +52,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
@@ -63,16 +64,41 @@ import com.example.compose.primaryContainerLight
 import com.example.compose.surfaceDimLight
 import longzhenhomepage.composeapp.generated.resources.GetItOnGooglePlay_Badge_Web_color_English
 import longzhenhomepage.composeapp.generated.resources.IconCover
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Black
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Bold
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Light
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Medium
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Regular
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Thin
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraBold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Light
+import longzhenhomepage.composeapp.generated.resources.Outfit_Medium
 import longzhenhomepage.composeapp.generated.resources.Outfit_Regular
+import longzhenhomepage.composeapp.generated.resources.Outfit_SemiBold
 import longzhenhomepage.composeapp.generated.resources.Outfit_Thin
 import longzhenhomepage.composeapp.generated.resources.Res
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Black
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Bold
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Light
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Medium
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Regular
+import longzhenhomepage.composeapp.generated.resources.awesomeHomepageIntroduction
 import longzhenhomepage.composeapp.generated.resources.code
+import longzhenhomepage.composeapp.generated.resources.crossClock
+import longzhenhomepage.composeapp.generated.resources.crossClockIntroduction
+import longzhenhomepage.composeapp.generated.resources.crossLoqui
+import longzhenhomepage.composeapp.generated.resources.crossLoquiIntroduction
+import longzhenhomepage.composeapp.generated.resources.homepage
 import longzhenhomepage.composeapp.generated.resources.titleBackground
+import longzhenhomepage.composeapp.generated.resources.titleDesign
+import longzhenhomepage.composeapp.generated.resources.titleProject
+import longzhenhomepage.composeapp.generated.resources.titleResearch
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterialApi::class,
     ExperimentalFoundationApi::class
@@ -80,6 +106,37 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun ProjectScreen() {
     HomepageTheme {
+
+        val myFont = if (Locale.current.language == "ja") {
+            FontFamily(
+                Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
+                Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
+                Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
+                Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
+                Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
+            )
+        } else if (Locale.current.language == "zh") {
+            FontFamily(
+                Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
+                Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
+                Font(Res.font.NotoSansSC_Black, FontWeight.Black),
+                Font(Res.font.NotoSansSC_Light, FontWeight.Light),
+                Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
+                Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
+            )
+        } else {
+            FontFamily(
+                Font(Res.font.Outfit_Bold, FontWeight.Bold),
+                Font(Res.font.Outfit_Thin, FontWeight.Thin),
+                Font(Res.font.Outfit_Regular, FontWeight.Normal),
+                Font(Res.font.Outfit_Black, FontWeight.Black),
+                Font(Res.font.Outfit_Light, FontWeight.Light),
+                Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
+                Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
+                Font(Res.font.Outfit_Medium, FontWeight.Medium),
+                Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
+            )
+        }
 
         val outfit = FontFamily(
             Font(Res.font.Outfit_Bold, FontWeight.Bold),
@@ -113,17 +170,17 @@ fun ProjectScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Project",
+                            text = stringResource(Res.string.titleProject),
                             style = MaterialTheme.typography.h2,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             modifier = Modifier.weight(2.5f)
                         )
                         Text(
-                            text = "Design",
+                            text = stringResource(Res.string.titleDesign),
                             //maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             style = MaterialTheme.typography.h2,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             modifier = Modifier.weight(2f)
                         )
                     }
@@ -167,7 +224,7 @@ fun ProjectScreen() {
                                         }
 
                                         Text(
-                                            text = "Cross Clock",
+                                            text = stringResource(Res.string.crossClock),
                                             fontFamily = outfit,
                                             style = MaterialTheme.typography.h4,
                                             color = MaterialTheme.colors.onSecondary,
@@ -175,8 +232,9 @@ fun ProjectScreen() {
                                                 .padding(8.dp)
                                         )
                                         Text(
-                                            text = "CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.",
-                                            fontFamily = outfit,
+                                            text = stringResource(Res.string.crossClockIntroduction),
+                                            //text = "CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.",
+                                            fontFamily = myFont,
                                             style = MaterialTheme.typography.body1,
                                             color = MaterialTheme.colors.onSecondary,
                                             overflow = TextOverflow.Ellipsis,
@@ -236,7 +294,7 @@ fun ProjectScreen() {
                                         }
 
                                         Text(
-                                            text = "Cross Loqui",
+                                            text = stringResource(Res.string.crossLoqui),
                                             fontFamily = outfit,
                                             style = MaterialTheme.typography.h4,
                                             color = MaterialTheme.colors.onSecondary,
@@ -244,8 +302,9 @@ fun ProjectScreen() {
                                                 .padding(8.dp)
                                         )
                                         Text(
-                                            text = "Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.",
-                                            fontFamily = outfit,
+                                            text = stringResource(Res.string.crossLoquiIntroduction),
+                                            //text = "Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.",
+                                            fontFamily = myFont,
                                             style = MaterialTheme.typography.body1,
                                             color = MaterialTheme.colors.onSecondary,
                                             overflow = TextOverflow.Ellipsis,
@@ -333,7 +392,7 @@ fun ProjectScreen() {
                                     }
 
                                     Text(
-                                        text = "Homepage",
+                                        text = stringResource(Res.string.homepage),
                                         fontFamily = outfit,
                                         style = MaterialTheme.typography.h4,
                                         color = MaterialTheme.colors.onSecondary,
@@ -341,8 +400,9 @@ fun ProjectScreen() {
                                             .padding(8.dp)
                                     )
                                     Text(
-                                        text = "Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.",
-                                        fontFamily = outfit,
+                                        text = stringResource(Res.string.awesomeHomepageIntroduction),
+                                        //text = "Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.",
+                                        fontFamily = myFont,
                                         style = MaterialTheme.typography.body1,
                                         color = MaterialTheme.colors.onSecondary,
                                         overflow = TextOverflow.Ellipsis,
@@ -401,9 +461,9 @@ fun ProjectScreen() {
                                 .padding(8.dp)
                         ) {
                             Text(
-                                text = "Research",
+                                text = stringResource(Res.string.titleResearch),
                                 style = MaterialTheme.typography.h2,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 modifier = Modifier
                                     .padding(0.dp, 32.dp, 0.dp, 16.dp)
                             )

@@ -1,0 +1,26 @@
+<resources>
+    <string name="item1">介绍</string>
+    <string name="item2">项目/研究</string>
+    <string name="item3">教育/实习</string>
+    <string name="item4">技能</string>
+
+    <string name="greeting1">你好！我是</string>
+    <string name="lastName">李</string>
+    <string name="firstName">隆祯</string>
+    <string name="fullName">李隆祯</string>
+    <string name="greeting2">我是一名Android开发者,\n计算机视觉研究生,\n设计爱好者</string>
+    <string name="greeting3">同时也是 </string>
+    <string name="greeting4">技术热好者</string>
+
+    <string name="titleProject">项目</string>
+    <string name="titleDesign">设计</string>
+    <string name="titleResearch">研究</string>
+
+    <string name="crossClock">Cross Clock</string>
+    <string name="crossLoqui">Cross Loqui</string>
+    <string name="homepage">HomePage</string>
+
+    <string name="crossClockIntroduction">Cross Clock让您能够在一个地方管理世界时钟和世界闹钟。您可以为闹钟添加所属时区而无需进行复杂的时区转换。</string>
+    <string name="crossLoquiIntroduction">Cross Loqui是一款允许用户聊天发布公开帖子的即时通讯软件，在未来的发展中本项目计划融入生成式人工智能技术，实现用户与特定虚拟世界中人物的即时沟通，这将是划时代的沟通和娱乐方式。</string>
+    <string name="awesomeHomepageIntroduction">为Awesome Dataset Distillation项目设计了更为美观和清晰并遵循Material Design的项目主页。</string>
+</resources>

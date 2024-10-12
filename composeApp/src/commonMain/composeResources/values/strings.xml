@@ -1,0 +1,26 @@
+<resources>
+    <string name="item1">Introduction</string>
+    <string name="item2">Project/Research</string>
+    <string name="item3">Education/Intern</string>
+    <string name="item4">Skills</string>
+
+    <string name="greeting1">Hi there! My name is</string>
+    <string name="lastName">Li</string>
+    <string name="firstName">Longzhen</string>
+    <string name="fullName">Li Longzhen</string>
+    <string name="greeting2">I am a Android Developer,\na Computer Vision master student,\na Design Enthusiasts</string>
+    <string name="greeting3">And a </string>
+    <string name="greeting4">Technophile</string>
+
+    <string name="titleProject">Project</string>
+    <string name="titleDesign">Design</string>
+    <string name="titleResearch">Research</string>
+
+    <string name="crossClock">Cross Clock</string>
+    <string name="crossLoqui">Cross Loqui</string>
+    <string name="homepage">HomePage</string>
+
+    <string name="crossClockIntroduction">CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.</string>
+    <string name="crossLoquiIntroduction">Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.</string>
+    <string name="awesomeHomepageIntroduction">Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.</string>
+</resources>

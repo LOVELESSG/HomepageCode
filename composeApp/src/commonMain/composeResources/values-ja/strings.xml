@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="item1">紹介</string>
+    <string name="item2">プロジェクト/研究</string>
+    <string name="item3">学歴/インターン</string>
+    <string name="item4">スキル</string>
+
+    <string name="greeting1">こんにちは</string>
+    <string name="lastName">李</string>
+    <string name="firstName">隆禎</string>
+    <string name="fullName">李隆禎です</string>
+    <string name="greeting2">Android開発者であり,\nコンピュータビジョンの修士であり,\nデザイン愛好者でもあり</string>
+    <string name="greeting3">何よりも</string>
+    <string name="greeting4">技術マニアです</string>
+
+    <string name="titleProject">プロジェクト</string>
+    <string name="titleDesign">デザイン</string>
+    <string name="titleResearch">研究</string>
+
+    <string name="crossClock">Cross Clock</string>
+    <string name="crossLoqui">Cross Loqui</string>
+    <string name="homepage">HomePage</string>
+
+    <string name="crossClockIntroduction">Cross Clockで、世界時計とアラームを 1 か所で管理できます。複雑なタイムゾーン変換を行わなくても、任意のタイムゾーンのアラームを直接に設定できます。</string>
+    <string name="crossLoquiIntroduction">Cross Loqui は、ユーザーが公開投稿やメッセージを送信できるインスタントメッセージングソフトウェアです。今後の開発では、生成型人工知能技術を統合して、特定の仮想世界のユーザーとキャラクター間のコミュニケーションを実現することが計画されており、これは画期的なコミュニケーションとエンターテイメントの方法になります。</string>
+    <string name="awesomeHomepageIntroduction">Awesome Dataset Distillationの美しさと鮮明さを向上させ、Material Designに準拠したホームページを設計しました。</string>
+</resources>
