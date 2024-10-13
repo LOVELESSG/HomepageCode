@@ -24,4 +24,31 @@
     <string name="crossClockIntroduction">Cross Clockで、世界時計とアラームを 1 か所で管理できます。複雑なタイムゾーン変換を行わなくても、任意のタイムゾーンのアラームを直接に設定できます。</string>
     <string name="crossLoquiIntroduction">Cross Loqui は、ユーザーが公開投稿やメッセージを送信できるインスタントメッセージングソフトウェアです。今後の開発では、生成型人工知能技術を統合して、特定の仮想世界のユーザーとキャラクター間のコミュニケーションを実現することが計画されており、これは画期的なコミュニケーションとエンターテイメントの方法になります。</string>
     <string name="awesomeHomepageIntroduction">Awesome Dataset Distillationの美しさと鮮明さを向上させ、Material Designに準拠したホームページを設計しました。</string>
+
+    <string name="titleEducation">学歴</string>
+    <string name="highSchool">Baotou No.9 High School (China)</string>
+    <string name="university">Dalhousie University (Canada)</string>
+    <string name="researchStudent">北海道大学(研究生)</string>
+    <string name="masterStudent">北海道大学(修士)</string>
+
+    <string name="titleInternship">インターン</string>
+    <string name="intern1">Wuhan Lianxiang Phaemaceutical Supply Chain Management(Backend development engineer)</string>
+    <string name="addressIntern1">Address: Room 901, Building 7, Fanhai International SOHO City, Jianghan District, Wuhan City, Hubei Province, China</string>
+    <string name="intern2">Wicresoft Co., LTD(English Technical Support Engineer)</string>
+    <string name="addressIntern2">Address: No. 1000, Zixing Road, Wujing Town, Minhang District, Shanghai, China</string>
+
+    <string name="titleProgrammingLanguage">プログラミング言語</string>
+    <string name="otherProgrammingLanguages">他のプログラミング言語: C, C#, Javascript, PHP</string>
+
+    <string name="titleTools">ツール</string>
+
+    <string name="languages">言語能力</string>
+    <string name="chinese">中国語</string>
+    <string name="japanese">日本語</string>
+    <string name="korean">韓国語</string>
+    <string name="english">英語</string>
+    <string name="italian">イタリア語</string>
+    <string name="studying">勉強中</string>
+    <string name="nativeLanguage">母語</string>
+    <string name="businessLevel">ビジネスレベル</string>
 </resources>

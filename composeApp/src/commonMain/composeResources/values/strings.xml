@@ -23,4 +23,31 @@
     <string name="crossClockIntroduction">CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.</string>
     <string name="crossLoquiIntroduction">Cross Loqui is an instant messaging software that allows users to send public posts and messages. In the future development, it is planned to integrate generative artificial intelligence technology to achieve instant communication between users and characters in specific virtual world, which will be an epoch-making way of communication and entertainment.</string>
     <string name="awesomeHomepageIntroduction">Design the official homepage for the project called Awesome Dataset Distillation, which follows the material design principles.</string>
+
+    <string name="titleEducation">Education</string>
+    <string name="highSchool">Baotou No.9 High School (China)</string>
+    <string name="university">Dalhousie University (Canada)</string>
+    <string name="researchStudent">Hokkaido University (Research Student)</string>
+    <string name="masterStudent">Hokkaido University (Master Student)</string>
+
+    <string name="titleInternship">Internship</string>
+    <string name="intern1">Wuhan Lianxiang Phaemaceutical Supply Chain Management(Backend development engineer)</string>
+    <string name="addressIntern1">Address: Room 901, Building 7, Fanhai International SOHO City, Jianghan District, Wuhan City, Hubei Province, China</string>
+    <string name="intern2">Wicresoft Co., LTD(English Technical Support Engineer)</string>
+    <string name="addressIntern2">Address: No. 1000, Zixing Road, Wujing Town, Minhang District, Shanghai, China</string>
+
+    <string name="titleProgrammingLanguage">Programming Languages</string>
+    <string name="otherProgrammingLanguages">Other programming languages: C, C#, Javascript, PHP</string>
+
+    <string name="titleTools">Tools</string>
+
+    <string name="languages">Languages</string>
+    <string name="chinese">Chinese</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="english">English</string>
+    <string name="italian">Italian</string>
+    <string name="studying">studying</string>
+    <string name="nativeLanguage">Native Language</string>
+    <string name="businessLevel">Business Level</string>
 </resources>

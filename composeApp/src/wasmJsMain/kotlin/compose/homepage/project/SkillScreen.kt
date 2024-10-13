@@ -19,21 +19,81 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.primaryContainerLight
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Black
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Bold
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Light
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Medium
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Regular
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Thin
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraBold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Light
+import longzhenhomepage.composeapp.generated.resources.Outfit_Medium
 import longzhenhomepage.composeapp.generated.resources.Outfit_Regular
+import longzhenhomepage.composeapp.generated.resources.Outfit_SemiBold
 import longzhenhomepage.composeapp.generated.resources.Outfit_Thin
 import longzhenhomepage.composeapp.generated.resources.Res
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Black
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Bold
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Light
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Medium
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Regular
+import longzhenhomepage.composeapp.generated.resources.businessLevel
+import longzhenhomepage.composeapp.generated.resources.chinese
+import longzhenhomepage.composeapp.generated.resources.english
+import longzhenhomepage.composeapp.generated.resources.italian
+import longzhenhomepage.composeapp.generated.resources.japanese
+import longzhenhomepage.composeapp.generated.resources.korean
+import longzhenhomepage.composeapp.generated.resources.languages
+import longzhenhomepage.composeapp.generated.resources.nativeLanguage
+import longzhenhomepage.composeapp.generated.resources.otherProgrammingLanguages
+import longzhenhomepage.composeapp.generated.resources.studying
+import longzhenhomepage.composeapp.generated.resources.titleProgrammingLanguage
+import longzhenhomepage.composeapp.generated.resources.titleTools
 import org.jetbrains.compose.resources.Font
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SkillScreen() {
     HomepageTheme {
+
+        val myFont = if (Locale.current.language == "ja") {
+            FontFamily(
+                Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
+                Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
+                Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
+                Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
+                Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
+            )
+        } else if (Locale.current.language == "zh") {
+            FontFamily(
+                Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
+                Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
+                Font(Res.font.NotoSansSC_Black, FontWeight.Black),
+                Font(Res.font.NotoSansSC_Light, FontWeight.Light),
+                Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
+                Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
+            )
+        } else {
+            FontFamily(
+                Font(Res.font.Outfit_Bold, FontWeight.Bold),
+                Font(Res.font.Outfit_Thin, FontWeight.Thin),
+                Font(Res.font.Outfit_Regular, FontWeight.Normal),
+                Font(Res.font.Outfit_Black, FontWeight.Black),
+                Font(Res.font.Outfit_Light, FontWeight.Light),
+                Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
+                Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
+                Font(Res.font.Outfit_Medium, FontWeight.Medium),
+                Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
+            )
+        }
 
         val outfit = FontFamily(
             Font(Res.font.Outfit_Bold, FontWeight.Bold),
@@ -58,9 +118,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Programming Languages",
+                            text = stringResource(Res.string.titleProgrammingLanguage),
                             style = MaterialTheme.typography.h2,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
                         Spacer(modifier = Modifier.weight(1f))
@@ -172,9 +232,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Other programming languages: C, C#, Javascript, PHP",
+                            text = stringResource(Res.string.otherProgrammingLanguages),
                             style = MaterialTheme.typography.h4,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             color = MaterialTheme.colors.onSecondary,
                             modifier = Modifier.weight(3.5f)
                         )
@@ -189,9 +249,9 @@ fun SkillScreen() {
                     Row {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Tools",
+                            text = stringResource(Res.string.titleTools),
                             style = MaterialTheme.typography.h2,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
                         Spacer(modifier = Modifier.weight(1f))
@@ -222,9 +282,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Languages",
+                            text = stringResource(Res.string.languages),
                             style = MaterialTheme.typography.h2,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
                         Spacer(modifier = Modifier.weight(1f))
@@ -237,17 +297,17 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Column(modifier = Modifier.weight(0.5f)) {
                             Text(
-                                text = "Chinese",
+                                text = stringResource(Res.string.chinese),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
                             Text(
-                                text = "(Native Language)",
+                                text = stringResource(Res.string.nativeLanguage),
                                 style = MaterialTheme.typography.body1,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
@@ -274,17 +334,17 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Column(modifier = Modifier.weight(0.5f)) {
                             Text(
-                                text = "English",
+                                text = stringResource(Res.string.english),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
                             Text(
-                                text = "(Business Level)",
+                                text = stringResource(Res.string.businessLevel),
                                 style = MaterialTheme.typography.body1,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
@@ -309,9 +369,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Japanese",
+                            text = stringResource(Res.string.japanese),
                             style = MaterialTheme.typography.h4,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             color = MaterialTheme.colors.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
@@ -336,9 +396,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Korean",
+                            text = stringResource(Res.string.korean),
                             style = MaterialTheme.typography.h4,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             color = MaterialTheme.colors.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
@@ -354,12 +414,6 @@ fun SkillScreen() {
                                     modifier = Modifier.padding(start = 16.dp, end = 16.dp)
                                 )
                             }
-
-                            /*Icon(
-                                imageVector = Icons.Filled.Verified,
-                                contentDescription = "",
-                                modifier = Modifier.padding(end = 16.dp)
-                            )*/
                         }
                     }
 
@@ -369,9 +423,9 @@ fun SkillScreen() {
                     ) {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
-                            text = "Italian",
+                            text = stringResource(Res.string.italian),
                             style = MaterialTheme.typography.h4,
-                            fontFamily = outfit,
+                            fontFamily = myFont,
                             color = MaterialTheme.colors.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
@@ -383,9 +437,9 @@ fun SkillScreen() {
                                 .padding(start = 16.dp)
                         ) {
                             Text(
-                                text = "Studying",
+                                text = stringResource(Res.string.studying),
                                 style = MaterialTheme.typography.h6,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                             )
                         }

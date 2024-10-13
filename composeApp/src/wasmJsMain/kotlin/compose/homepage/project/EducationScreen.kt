@@ -22,21 +22,79 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.compose.HomepageTheme
 import com.example.compose.primaryContainerLight
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Black
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Bold
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Light
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Medium
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Regular
+import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Thin
 import longzhenhomepage.composeapp.generated.resources.Outfit_Black
 import longzhenhomepage.composeapp.generated.resources.Outfit_Bold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraBold
+import longzhenhomepage.composeapp.generated.resources.Outfit_ExtraLight
 import longzhenhomepage.composeapp.generated.resources.Outfit_Light
+import longzhenhomepage.composeapp.generated.resources.Outfit_Medium
 import longzhenhomepage.composeapp.generated.resources.Outfit_Regular
+import longzhenhomepage.composeapp.generated.resources.Outfit_SemiBold
 import longzhenhomepage.composeapp.generated.resources.Outfit_Thin
 import longzhenhomepage.composeapp.generated.resources.Res
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Black
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Bold
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Light
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Medium
+import longzhenhomepage.composeapp.generated.resources.ZenMaruGothic_Regular
+import longzhenhomepage.composeapp.generated.resources.addressIntern1
+import longzhenhomepage.composeapp.generated.resources.addressIntern2
+import longzhenhomepage.composeapp.generated.resources.highSchool
+import longzhenhomepage.composeapp.generated.resources.intern1
+import longzhenhomepage.composeapp.generated.resources.intern2
+import longzhenhomepage.composeapp.generated.resources.masterStudent
+import longzhenhomepage.composeapp.generated.resources.researchStudent
+import longzhenhomepage.composeapp.generated.resources.titleEducation
+import longzhenhomepage.composeapp.generated.resources.titleInternship
+import longzhenhomepage.composeapp.generated.resources.university
 import org.jetbrains.compose.resources.Font
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun EducationScreen() {
     HomepageTheme {
+
+        val myFont = if (Locale.current.language == "ja") {
+            FontFamily(
+                Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
+                Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
+                Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
+                Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
+                Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
+            )
+        } else if (Locale.current.language == "zh") {
+            FontFamily(
+                Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
+                Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
+                Font(Res.font.NotoSansSC_Black, FontWeight.Black),
+                Font(Res.font.NotoSansSC_Light, FontWeight.Light),
+                Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
+                Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
+            )
+        } else {
+            FontFamily(
+                Font(Res.font.Outfit_Bold, FontWeight.Bold),
+                Font(Res.font.Outfit_Thin, FontWeight.Thin),
+                Font(Res.font.Outfit_Regular, FontWeight.Normal),
+                Font(Res.font.Outfit_Black, FontWeight.Black),
+                Font(Res.font.Outfit_Light, FontWeight.Light),
+                Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
+                Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
+                Font(Res.font.Outfit_Medium, FontWeight.Medium),
+                Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
+            )
+        }
 
         val outfit = FontFamily(
             Font(Res.font.Outfit_Bold, FontWeight.Bold),
@@ -60,9 +118,9 @@ fun EducationScreen() {
                 ) {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
-                        text = "Education",
+                        text = stringResource(Res.string.titleEducation),
                         style = MaterialTheme.typography.h2,
-                        fontFamily = outfit,
+                        fontFamily = myFont,
                         color = MaterialTheme.colors.onSecondary,
                         modifier = Modifier.weight(3.5f)
                     )
@@ -160,9 +218,9 @@ fun EducationScreen() {
                             modifier = Modifier.height(96.dp)
                         ) {
                             Text(
-                                text = "Baotou No.9 High School (China)",
+                                text = stringResource(Res.string.highSchool),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 modifier = Modifier
                                     //.height(64.dp)
@@ -176,9 +234,9 @@ fun EducationScreen() {
                             modifier = Modifier.height(128.dp)
                         ) {
                             Text(
-                                text = "Dalhousie University (Canada)",
+                                text = stringResource(Res.string.university),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
@@ -191,9 +249,9 @@ fun EducationScreen() {
                             modifier = Modifier.height(96.dp)
                         ) {
                             Text(
-                                text = "Hokkaido University(Research Student)",
+                                text = stringResource(Res.string.researchStudent),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
@@ -206,9 +264,9 @@ fun EducationScreen() {
                             modifier = Modifier.height(64.dp)
                         ) {
                             Text(
-                                text = "Hokkaido University(Master Student)",
+                                text = stringResource(Res.string.masterStudent),
                                 style = MaterialTheme.typography.h4,
-                                fontFamily = outfit,
+                                fontFamily = myFont,
                                 color = MaterialTheme.colors.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
@@ -227,9 +285,9 @@ fun EducationScreen() {
                 ) {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
-                        text = "Internship",
+                        text = stringResource(Res.string.titleInternship),
                         style = MaterialTheme.typography.h2,
-                        fontFamily = outfit,
+                        fontFamily = myFont,
                         color = MaterialTheme.colors.onSecondary,
                         modifier = Modifier.weight(3.5f)
                     )
@@ -294,18 +352,18 @@ fun EducationScreen() {
                         ) {
                             Column {
                                 Text(
-                                    text = "Wuhan Lianxiang Phaemaceutical Supply Chain Management(Backend development engineer)",
+                                    text = stringResource(Res.string.intern1),
                                     style = MaterialTheme.typography.h4,
-                                    fontFamily = outfit,
+                                    fontFamily = myFont,
                                     color = MaterialTheme.colors.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
                                 )
                                 Text(
-                                    text = "Address: Room 901, Building 7, Fanhai International SOHO City, Jianghan District, Wuhan City, Hubei Province, China",
+                                    text = stringResource(Res.string.addressIntern1),
                                     style = MaterialTheme.typography.body1,
-                                    fontFamily = outfit,
+                                    fontFamily = myFont,
                                     color = MaterialTheme.colors.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
@@ -322,18 +380,18 @@ fun EducationScreen() {
                         ) {
                             Column {
                                 Text(
-                                    text = "Wicresoft Co., LTD(English Technical Support Engineer)",
+                                    text = stringResource(Res.string.intern2),
                                     style = MaterialTheme.typography.h4,
-                                    fontFamily = outfit,
+                                    fontFamily = myFont,
                                     color = MaterialTheme.colors.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
                                 )
                                 Text(
-                                    text = "Address: No. 1000, Zixing Road, Wujing Town, Minhang District, Shanghai, China",
+                                    text = stringResource(Res.string.addressIntern2),
                                     style = MaterialTheme.typography.body1,
-                                    fontFamily = outfit,
+                                    fontFamily = myFont,
                                     color = MaterialTheme.colors.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
