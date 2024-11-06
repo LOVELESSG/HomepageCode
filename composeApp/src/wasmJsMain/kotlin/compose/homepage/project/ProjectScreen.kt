@@ -107,35 +107,39 @@ import org.jetbrains.compose.resources.stringResource
 fun ProjectScreen() {
     HomepageTheme {
 
-        val myFont = if (Locale.current.language == "ja") {
-            FontFamily(
-                Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
-                Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
-                Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
-                Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
-                Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
-            )
-        } else if (Locale.current.language == "zh") {
-            FontFamily(
-                Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
-                Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
-                Font(Res.font.NotoSansSC_Black, FontWeight.Black),
-                Font(Res.font.NotoSansSC_Light, FontWeight.Light),
-                Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
-                Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
-            )
-        } else {
-            FontFamily(
-                Font(Res.font.Outfit_Bold, FontWeight.Bold),
-                Font(Res.font.Outfit_Thin, FontWeight.Thin),
-                Font(Res.font.Outfit_Regular, FontWeight.Normal),
-                Font(Res.font.Outfit_Black, FontWeight.Black),
-                Font(Res.font.Outfit_Light, FontWeight.Light),
-                Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
-                Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
-                Font(Res.font.Outfit_Medium, FontWeight.Medium),
-                Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
-            )
+        val myFont = when (Locale.current.language) {
+            "ja" -> {
+                FontFamily(
+                    Font(Res.font.ZenMaruGothic_Bold, FontWeight.Bold),
+                    Font(Res.font.ZenMaruGothic_Regular, FontWeight.Normal),
+                    Font(Res.font.ZenMaruGothic_Black, FontWeight.Black),
+                    Font(Res.font.ZenMaruGothic_Medium, FontWeight.Medium),
+                    Font(Res.font.ZenMaruGothic_Light, FontWeight.Light),
+                )
+            }
+            "zh" -> {
+                FontFamily(
+                    Font(Res.font.NotoSansSC_Bold, FontWeight.Bold),
+                    Font(Res.font.NotoSansSC_Thin, FontWeight.Thin),
+                    Font(Res.font.NotoSansSC_Black, FontWeight.Black),
+                    Font(Res.font.NotoSansSC_Light, FontWeight.Light),
+                    Font(Res.font.NotoSansSC_Medium, FontWeight.Medium),
+                    Font(Res.font.NotoSansSC_Regular, FontWeight.Normal)
+                )
+            }
+            else -> {
+                FontFamily(
+                    Font(Res.font.Outfit_Bold, FontWeight.Bold),
+                    Font(Res.font.Outfit_Thin, FontWeight.Thin),
+                    Font(Res.font.Outfit_Regular, FontWeight.Normal),
+                    Font(Res.font.Outfit_Black, FontWeight.Black),
+                    Font(Res.font.Outfit_Light, FontWeight.Light),
+                    Font(Res.font.Outfit_ExtraBold, FontWeight.ExtraBold),
+                    Font(Res.font.Outfit_ExtraLight, FontWeight.ExtraLight),
+                    Font(Res.font.Outfit_Medium, FontWeight.Medium),
+                    Font(Res.font.Outfit_SemiBold, FontWeight.SemiBold)
+                )
+            }
         }
 
         val outfit = FontFamily(
