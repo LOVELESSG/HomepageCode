@@ -1,4 +1,4 @@
-package compose.homepage.project
+package compose.homepage.project.ui.skill
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Verified
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -122,7 +122,7 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.titleProgrammingLanguage),
-                            style = MaterialTheme.typography.h2,
+                            //style = MaterialTheme.typography.h2,
                             fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
@@ -136,9 +136,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = "Kotlin",
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -161,9 +161,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = "Python",
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -186,9 +186,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = "Java",
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -211,9 +211,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = "SQL",
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(0.5f)
                         )
                         Row(
@@ -236,9 +236,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.otherProgrammingLanguages),
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = myFont,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(3.5f)
                         )
                         Spacer(modifier = Modifier.weight(1f))
@@ -253,7 +253,7 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.titleTools),
-                            style = MaterialTheme.typography.h2,
+                            //style = MaterialTheme.typography.h2,
                             fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
@@ -267,9 +267,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = "Jetpack Compose, Firebase, Compose Multiplatform, Git, GitHub, Android Studio, Google Play Console, Google Search Console, Google Cloud, Google Colaboratory, webstorm, pycharm, Figma, Linux, HTML, CSS, markdown",
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = outfit,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             modifier = Modifier.weight(3.5f)
                         )
                         Spacer(modifier = Modifier.weight(1f))
@@ -286,7 +286,7 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.languages),
-                            style = MaterialTheme.typography.h2,
+                            //style = MaterialTheme.typography.h2,
                             fontFamily = myFont,
                             modifier = Modifier.weight(3.5f)
                         )
@@ -301,17 +301,17 @@ fun SkillScreen() {
                         Column(modifier = Modifier.weight(0.5f)) {
                             Text(
                                 text = stringResource(Res.string.chinese),
-                                style = MaterialTheme.typography.h4,
+                                //style = MaterialTheme.typography.h4,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
                             Text(
                                 text = stringResource(Res.string.nativeLanguage),
-                                style = MaterialTheme.typography.body1,
+                                //style = MaterialTheme.typography.body1,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
@@ -338,17 +338,17 @@ fun SkillScreen() {
                         Column(modifier = Modifier.weight(0.5f)) {
                             Text(
                                 text = stringResource(Res.string.english),
-                                style = MaterialTheme.typography.h4,
+                                //style = MaterialTheme.typography.h4,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
                             Text(
                                 text = stringResource(Res.string.businessLevel),
-                                style = MaterialTheme.typography.body1,
+                                //style = MaterialTheme.typography.body1,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis,
                             )
@@ -373,9 +373,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.japanese),
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = myFont,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
@@ -400,9 +400,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.korean),
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = myFont,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
@@ -427,9 +427,9 @@ fun SkillScreen() {
                         Spacer(modifier = Modifier.weight(1f))
                         Text(
                             text = stringResource(Res.string.italian),
-                            style = MaterialTheme.typography.h4,
+                            //style = MaterialTheme.typography.h4,
                             fontFamily = myFont,
-                            color = MaterialTheme.colors.onSecondary,
+                            color = MaterialTheme.colorScheme.onSecondary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(0.5f)
@@ -441,9 +441,9 @@ fun SkillScreen() {
                         ) {
                             Text(
                                 text = stringResource(Res.string.studying),
-                                style = MaterialTheme.typography.h6,
+                                //style = MaterialTheme.typography.h6,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                             )
                         }
                     }

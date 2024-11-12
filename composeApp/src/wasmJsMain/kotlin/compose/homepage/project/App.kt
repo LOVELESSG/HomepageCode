@@ -13,29 +13,20 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.ListItem
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Architecture
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.HistoryEdu
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Light
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,8 +34,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.compose.HomepageTheme
 import com.example.compose.tertiaryContainerLight
+import compose.homepage.project.navigation.Screen
+import compose.homepage.project.navigation.navGraph.SetupNavGraph
+import compose.homepage.project.ui.components.HomepageSuiteScaffold
+import compose.homepage.project.ui.education.EducationScreen
+import compose.homepage.project.ui.greet.GreetScreen
+import compose.homepage.project.ui.project.ProjectScreen
+import compose.homepage.project.ui.skill.SkillScreen
 import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Black
 import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Bold
 import longzhenhomepage.composeapp.generated.resources.NotoSansSC_Light
@@ -75,7 +76,6 @@ import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun App() {
     HomepageTheme {
@@ -130,12 +130,24 @@ fun App() {
         var isEdu by remember { mutableStateOf(false) }
         var isSkills by remember { mutableStateOf(false) }
 
+        val navController = rememberNavController()
+
+        Scaffold { innerPadding ->
+            HomepageSuiteScaffold(navController = navController, innerPaddingValues = innerPadding) {
+                SetupNavGraph(
+                    navController = navController,
+                    startScreen = Screen.Greet.route
+                )
+            }
+        }
+        //HomepageSuiteScaffold(navController = navController)
+
+
         /*data class Language(val code: String)
         val LocalLanguage = staticCompositionLocalOf<Language> { error("No Language provided") }
         val initialLanguage = "en"*/
 
-
-        Row {
+        /*Row {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -302,7 +314,7 @@ fun App() {
                 }
             }
 
-            /*CompositionLocalProvider(LocalLanguage provides Language(initialLanguage)){
+            *//*CompositionLocalProvider(LocalLanguage provides Language(initialLanguage)){
                 Box(modifier = Modifier.weight(9f)) {
                     if (isGreet) {
                         GreetScreen()
@@ -314,7 +326,7 @@ fun App() {
                         SkillScreen()
                     }
                 }
-            }*/
+            }*//*
             Box(modifier = Modifier.weight(9f)) {
                 if (isGreet) {
                     GreetScreen()
@@ -326,8 +338,6 @@ fun App() {
                     SkillScreen()
                 }
             }
-        }
-
-
+        }*/
     }
 }

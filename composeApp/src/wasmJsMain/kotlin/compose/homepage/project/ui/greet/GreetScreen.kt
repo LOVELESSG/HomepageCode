@@ -1,11 +1,11 @@
-package compose.homepage.project
+package compose.homepage.project.ui.greet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -101,7 +101,7 @@ fun GreetScreen() {
         ) {
             Text(
                 text = stringResource(Res.string.greeting1),
-                style = MaterialTheme.typography.h3,
+                style = MaterialTheme.typography.displaySmall,
                 textAlign = TextAlign.Center,
                 fontFamily = myFont,
                 color = onPrimaryContainerLight
@@ -109,7 +109,7 @@ fun GreetScreen() {
             Text(
                 //text = Locale.current.language,
                 text = stringResource(Res.string.fullName),
-                style = MaterialTheme.typography.h1,
+                style = MaterialTheme.typography.displayLarge,
                 textAlign = TextAlign.Center,
                 fontFamily = myFont,
                 fontWeight = FontWeight.SemiBold,
@@ -118,7 +118,7 @@ fun GreetScreen() {
             Text(
                 text = stringResource(Res.string.greeting2),
                 //text = "I am a Android Developer,\na Computer Vision master student,\na Design Enthusiasts",
-                style = MaterialTheme.typography.h3,
+                style = MaterialTheme.typography.displaySmall,
                 textAlign = TextAlign.Center,
                 fontFamily = myFont,
                 //fontFamily = FontFamily(Font(Res.font.ZenMaruGothic_Regular)),
@@ -135,21 +135,11 @@ fun GreetScreen() {
                         append(stringResource(Res.string.greeting4))
                     }
                 },
-                style = MaterialTheme.typography.h2,
+                style = MaterialTheme.typography.displayMedium,
                 textAlign = TextAlign.Center,
                 fontFamily = myFont,
                 color = onPrimaryContainerLight
             )
-            /*Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }*/
         }
     }
 }

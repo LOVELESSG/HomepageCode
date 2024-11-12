@@ -1,4 +1,4 @@
-package compose.homepage.project
+package compose.homepage.project.ui.education
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,8 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -119,9 +119,9 @@ fun EducationScreen() {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         text = stringResource(Res.string.titleEducation),
-                        style = MaterialTheme.typography.h2,
+                        style = MaterialTheme.typography.displayMedium,
                         fontFamily = myFont,
-                        color = MaterialTheme.colors.onSecondary,
+                        color = MaterialTheme.colorScheme.onSecondary,
                         modifier = Modifier.weight(3.5f)
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -145,13 +145,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(96.dp)
-                                .background(color = MaterialTheme.colors.primary)
+                                .background(color = MaterialTheme.colorScheme.primary)
                             )
                             Text(
                                 text = "2014\n~\n2017",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onPrimary
+                                color = MaterialTheme.colorScheme.onPrimary
                             )
                         }
 
@@ -162,13 +162,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(128.dp)
-                                .background(color = MaterialTheme.colors.secondary)
+                                .background(color = MaterialTheme.colorScheme.secondary)
                             )
                             Text(
                                 text = "2018\n~\n2022",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onSecondary
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         }
 
@@ -179,13 +179,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(96.dp)
-                                .background(color = MaterialTheme.colors.primary)
+                                .background(color = MaterialTheme.colorScheme.primary)
                             )
                             Text(
                                 text = "2023.9\n~\n2024.4",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onPrimary
+                                color = MaterialTheme.colorScheme.onPrimary
                             )
                         }
 
@@ -196,13 +196,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(64.dp)
-                                .background(color = MaterialTheme.colors.secondary)
+                                .background(color = MaterialTheme.colorScheme.secondary)
                             )
                             Text(
                                 text = "2024.4\n~",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onSecondary
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         }
 
@@ -219,9 +219,9 @@ fun EducationScreen() {
                         ) {
                             Text(
                                 text = stringResource(Res.string.highSchool),
-                                style = MaterialTheme.typography.h4,
+                                style = MaterialTheme.typography.headlineMedium,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 modifier = Modifier
                                     //.height(64.dp)
                                 //.padding(0.dp, 8.dp)
@@ -235,9 +235,9 @@ fun EducationScreen() {
                         ) {
                             Text(
                                 text = stringResource(Res.string.university),
-                                style = MaterialTheme.typography.h4,
+                                style = MaterialTheme.typography.headlineMedium,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
                                 //.padding(0.dp, 8.dp)
@@ -250,9 +250,9 @@ fun EducationScreen() {
                         ) {
                             Text(
                                 text = stringResource(Res.string.researchStudent),
-                                style = MaterialTheme.typography.h4,
+                                style = MaterialTheme.typography.headlineMedium,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
                                 //.padding(0.dp, 8.dp)
@@ -265,9 +265,9 @@ fun EducationScreen() {
                         ) {
                             Text(
                                 text = stringResource(Res.string.masterStudent),
-                                style = MaterialTheme.typography.h4,
+                                style = MaterialTheme.typography.headlineMedium,
                                 fontFamily = myFont,
-                                color = MaterialTheme.colors.onSecondary,
+                                color = MaterialTheme.colorScheme.onSecondary,
                                 modifier = Modifier
                                 //.height(64.dp)
                                 //.padding(0.dp, 8.dp)
@@ -286,9 +286,9 @@ fun EducationScreen() {
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         text = stringResource(Res.string.titleInternship),
-                        style = MaterialTheme.typography.h2,
+                        style = MaterialTheme.typography.displayMedium,
                         fontFamily = myFont,
-                        color = MaterialTheme.colors.onSecondary,
+                        color = MaterialTheme.colorScheme.onSecondary,
                         modifier = Modifier.weight(3.5f)
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -312,13 +312,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(136.dp)
-                                .background(color = MaterialTheme.colors.primary)
+                                .background(color = MaterialTheme.colorScheme.primary)
                             )
                             Text(
                                 text = "2023.3\n~\n2023.6",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onPrimary
+                                color = MaterialTheme.colorScheme.onPrimary
                             )
                         }
 
@@ -329,13 +329,13 @@ fun EducationScreen() {
                                 //.width(3.dp)
                                 .fillMaxWidth()
                                 .height(136.dp)
-                                .background(color = MaterialTheme.colors.secondary)
+                                .background(color = MaterialTheme.colorScheme.secondary)
                             )
                             Text(
                                 text = "2023.6\n~\n2023.9",
                                 textAlign = TextAlign.Center,
                                 fontFamily = outfit,
-                                color = MaterialTheme.colors.onSecondary
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         }
 
@@ -353,18 +353,18 @@ fun EducationScreen() {
                             Column {
                                 Text(
                                     text = stringResource(Res.string.intern1),
-                                    style = MaterialTheme.typography.h4,
+                                    style = MaterialTheme.typography.headlineMedium,
                                     fontFamily = myFont,
-                                    color = MaterialTheme.colors.onSecondary,
+                                    color = MaterialTheme.colorScheme.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
                                 )
                                 Text(
                                     text = stringResource(Res.string.addressIntern1),
-                                    style = MaterialTheme.typography.body1,
+                                    style = MaterialTheme.typography.bodyLarge,
                                     fontFamily = myFont,
-                                    color = MaterialTheme.colors.onSecondary,
+                                    color = MaterialTheme.colorScheme.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
@@ -381,18 +381,18 @@ fun EducationScreen() {
                             Column {
                                 Text(
                                     text = stringResource(Res.string.intern2),
-                                    style = MaterialTheme.typography.h4,
+                                    style = MaterialTheme.typography.headlineMedium,
                                     fontFamily = myFont,
-                                    color = MaterialTheme.colors.onSecondary,
+                                    color = MaterialTheme.colorScheme.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
                                 )
                                 Text(
                                     text = stringResource(Res.string.addressIntern2),
-                                    style = MaterialTheme.typography.body1,
+                                    style = MaterialTheme.typography.bodyLarge,
                                     fontFamily = myFont,
-                                    color = MaterialTheme.colors.onSecondary,
+                                    color = MaterialTheme.colorScheme.onSecondary,
                                     modifier = Modifier
                                     //.height(64.dp)
                                     //.padding(0.dp, 8.dp)
