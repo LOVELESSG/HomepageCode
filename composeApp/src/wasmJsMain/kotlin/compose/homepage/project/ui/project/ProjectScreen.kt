@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Card
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -86,7 +87,6 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ProjectScreen() {
     HomepageTheme {
@@ -212,7 +212,7 @@ fun ProjectScreen() {
                                         Text(
                                             text = stringResource(Res.string.crossClock),
                                             fontFamily = outfit,
-                                            style = MaterialTheme.typography.titleMedium,
+                                            style = MaterialTheme.typography.headlineMedium,
                                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                                             modifier = Modifier
                                                 .padding(8.dp)
@@ -221,7 +221,7 @@ fun ProjectScreen() {
                                             text = stringResource(Res.string.crossClockIntroduction),
                                             //text = "CrossClock allows you to manage your world clocks and world alarms in one place. You will be able to set alarms for any time zone without complicated time zone conversions.",
                                             fontFamily = myFont,
-                                            style = MaterialTheme.typography.bodyMedium,
+                                            style = MaterialTheme.typography.bodyLarge,
                                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                                             overflow = TextOverflow.Ellipsis,
                                             maxLines = if (crossClockExpand) Int.MAX_VALUE else 4,
@@ -280,7 +280,7 @@ fun ProjectScreen() {
                                         Text(
                                             text = stringResource(Res.string.crossLoqui),
                                             fontFamily = outfit,
-                                            style = MaterialTheme.typography.titleMedium,
+                                            style = MaterialTheme.typography.headlineMedium,
                                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                                             modifier = Modifier
                                                 .padding(8.dp)
@@ -288,7 +288,7 @@ fun ProjectScreen() {
                                         Text(
                                             text = stringResource(Res.string.crossLoquiIntroduction),
                                             fontFamily = myFont,
-                                            style = MaterialTheme.typography.bodyMedium,
+                                            style = MaterialTheme.typography.bodyLarge,
                                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                                             overflow = TextOverflow.Ellipsis,
                                             maxLines = if (crossLoquiExpand) Int.MAX_VALUE else 4,
@@ -360,7 +360,7 @@ fun ProjectScreen() {
                                                 text = "Awesome Dataset Distillation Homepage",
                                                 fontFamily = outfit,
                                                 textAlign = TextAlign.Center,
-                                                //style = MaterialTheme.typography.h6,
+                                                style = MaterialTheme.typography.headlineMedium,
                                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                                                 modifier = Modifier
                                                     .padding(8.dp)
@@ -379,7 +379,7 @@ fun ProjectScreen() {
                                     Text(
                                         text = stringResource(Res.string.awesomeHomepageIntroduction),
                                         fontFamily = myFont,
-                                        style = MaterialTheme.typography.bodyMedium,
+                                        style = MaterialTheme.typography.bodyLarge,
                                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                                         overflow = TextOverflow.Ellipsis,
                                         maxLines = if (awesomeHomepageExpand) Int.MAX_VALUE else 4,
@@ -446,28 +446,13 @@ fun ProjectScreen() {
                                     fontFamily = outfit,
                                     //style = MaterialTheme.typography.h6,
                                 ) },
-                                /*headlineContent = { ClickableText(
-                                    onClick = {
-                                        uriHandler.openUri("https://arxiv.org/abs/2404.17732")
-                                    },
-                                    onHover = {
-                                        article1Hover = it
-                                    },
-                                    text = AnnotatedString(
-                                        text = "Generative Dataset Distillation: Balancing Global Structure and Local Details",
-                                        spanStyle = SpanStyle(
-                                            fontFamily = outfit,
-                                            textDecoration = if (article1Hover == null) TextDecoration.None else TextDecoration.Underline
-                                        ),
-                                    ),
-                                    //style = MaterialTheme.typography.h6,
-                                ) },*/
                                 supportingContent = { Text(
                                     text = "Longzhen Li & Guang Li et al., CVPR 2024 Workshop",
                                     fontFamily = outfit,
                                     style = MaterialTheme.typography.bodyLarge,
                                     modifier = Modifier.padding(bottom = 4.dp)
                                 ) },
+                                colors = ListItemDefaults.colors(MaterialTheme.colorScheme.surfaceContainerHighest),
                                 modifier = Modifier
                                     .clickable {
                                         uriHandler.openUri("https://arxiv.org/abs/2404.17732")
@@ -490,6 +475,7 @@ fun ProjectScreen() {
                                     style = MaterialTheme.typography.bodyLarge,
                                     modifier = Modifier.padding(bottom = 4.dp)
                                 ) },
+                                colors = ListItemDefaults.colors(MaterialTheme.colorScheme.surfaceContainerHighest),
                                 modifier = Modifier
                                     .clickable {
                                         uriHandler.openUri("https://miru-committee.github.io/miru2024/program/timetable/#1620---1820-%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%83%961ais-1a--%E4%BC%81%E6%A5%AD%E5%B1%95%E7%A4%BAaex-a--%E3%83%87%E3%83%A2ds3f%E5%A4%A7%E4%BC%9A%E8%AD%B0%E5%AE%A4a")
@@ -497,7 +483,7 @@ fun ProjectScreen() {
                                     .fillMaxWidth()
                                     .padding(bottom = 16.dp)
                                     .clip(RoundedCornerShape(12.dp))
-                                    .background(color = MaterialTheme.colorScheme.secondary)
+                                    .background(color = MaterialTheme.colorScheme.primary)
                             )
 
                             ListItem(
@@ -512,6 +498,7 @@ fun ProjectScreen() {
                                     style = MaterialTheme.typography.bodyLarge,
                                     modifier = Modifier.padding(bottom = 4.dp)
                                 ) },
+                                colors = ListItemDefaults.colors(MaterialTheme.colorScheme.surfaceContainerHighest),
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(bottom = 16.dp)
@@ -536,6 +523,7 @@ fun ProjectScreen() {
                                     fontFamily = outfit,
                                     //style = MaterialTheme.typography.bodySmall,
                                 ) },
+                                colors = ListItemDefaults.colors(MaterialTheme.colorScheme.surfaceContainerHighest),
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(bottom = 16.dp)
